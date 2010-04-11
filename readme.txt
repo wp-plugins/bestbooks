@@ -10,10 +10,10 @@ Provides an accounting application framework for wordpress.
 
 == Description ==
 
-BestBooks For PHP was created as a test and validation during the
+BestBooks For Wordpress was created as a test and validation during the
 development of BestBooks for Java, the original framework.
 
-BestBooks for PHP is a minimal accounting framework.
+BestBooks for Wordpress is a minimal accounting framework.
 
 BestBooks for PHP has enough functionality that you can create
 workable scripts that solve accounting problems. You will be able to
@@ -25,7 +25,6 @@ Requirements:
 ------------
 
 PHP 5 	(does not work for PHP4)
-Pear DB	(for database access)
 
 
 == Installation ==
@@ -34,7 +33,7 @@ To instal this plugin, follow these steps:
 
 1. Download the plugin
 2. Extract the single file
-3. Extract mavis plugin to the `/wp-content/plugins/` directory as new directory will be created identified as 'mavis-https-to-http-redirect'
+3. Extract the plugin to the `/wp-content/plugins/` directory as new directory will be created identified as 'mavis-https-to-http-redirect'
 4. Activate the plugin through the 'Plugins' menu in WordPress, identified by 'Bestbooks'
 
 
@@ -44,7 +43,9 @@ To instal this plugin, follow these steps:
 Tables creation from SQL:
 ------------------------
 
-CREATE DATABASE `bestbooks`;
+
+These tables are create automatically within the wordpress database
+
 
 -- 
 -- Table structure for table `Accounts`
