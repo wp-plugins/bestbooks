@@ -33,7 +33,7 @@ To instal this plugin, follow these steps:
 
 1. Download the plugin
 2. Extract the single file
-3. Extract the plugin to the `/wp-content/plugins/` directory as new directory will be created identified as 'mavis-https-to-http-redirect'
+3. Extract the plugin to the `/wp-content/plugins/` directory as new directory will be created identified as 'bestbooks'
 4. Activate the plugin through the 'Plugins' menu in WordPress, identified by 'Bestbooks'
 
 
@@ -44,7 +44,7 @@ Tables creation from SQL:
 ------------------------
 
 
-These tables are create automatically within the wordpress database
+These tables are created automatically within the wordpress database
 
 
 -- 
