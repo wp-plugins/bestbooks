@@ -10,21 +10,19 @@ Provides an accounting application framework for wordpress.
 
 == Description ==
 
-BestBooks For Wordpress was created as a test and validation during the
-development of BestBooks for Java, the original framework.
+BestBooks For Wordpress originally was developed in Java, the original framework.
+The goal behind Bestbooks is to provide an accounting application framework modelled
+after common accounting terms (t-account,ledger,jornal) and the GAAP (Generally Accepted
+Accounting Principles) while providing open database connectivity. At the time,
+accounting frameworks had a proprietary, closed database structure. The original Bestbooks
+for Java has connectivity for multiple databases including MSSQL, DB2, Oracle and MySQL.
 
 BestBooks for Wordpress is a minimal accounting framework.
 
-BestBooks for PHP has enough functionality that you can create
+BestBooks for Wordpress has enough functionality that you can create
 workable scripts that solve accounting problems. You will be able to
 implement many of the accounting problems on the accounting
 learning website, http://www.simplestudies.com
-
-
-Requirements:
-------------
-
-PHP 5 	(does not work for PHP4)
 
 
 == Installation ==
@@ -103,15 +101,6 @@ then check your database tables for the validation.
 
 If you get an error, please report it!
 
-Important Information for hosts with PHP5 extensions:
-----------------------------------------------------
-
-Many hosting providers include both PHP4 and PHP5 support. While PHP4
-support is automatic when using just the .PHP file extension, to
-obtain PHP5 support (required for BestBooks for PHP), you must used the
-PHP5 extension. Support for using the PHP5 extension has been included
-under the php5-ext directory.
-
 == Frequently Asked Questions ==
 
 Please do not be afraid of asking questions?<br>
@@ -130,5 +119,7 @@ Please do not be afraid of asking questions?<br>
 We make honorable mention to anyone who helps make Mavis HTTPS to HTTP Redirect a better plugin!
 
 == Contact ==
+
+Support is provided at http://support.phkcorp.com. Please request membership in the "Bestbooks" forum.
 
 Please contact phkcorp2005@gmail.com or visit www.phkcorp.com?do=wordpress with questions, comments, or requests.
