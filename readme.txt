@@ -116,7 +116,7 @@ Please do not be afraid of asking questions?<br>
 
 == Credits ==
 
-We make honorable mention to anyone who helps make Mavis HTTPS to HTTP Redirect a better plugin!
+We make honorable mention to anyone who helps make Bestbooks for Wordpress a better plugin!
 
 == Contact ==
 
