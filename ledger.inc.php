@@ -332,11 +332,13 @@ abstract class Ledger extends TAccount {
 	var $credit = 0;
 
 	public function __construct($db, $name, $type) {
+		global $wpdb;
+		
 		if ($name == null || $type == null)
 			throw new BestBooksException("Null pointer exception");
 		$this->name = $name;
 		$this->type = $type;
-		$sql = "SELECT type FROM Accounts WHERE name='$this->name'";
+		$sql = "SELECT type FROM ".$wpdb->prefix."Accounts WHERE name='$this->name'";
 		$result = $db->query($sql);
 
 		if (!$result) {
@@ -348,7 +350,7 @@ abstract class Ledger extends TAccount {
 		$db->get_row($sql,$row,0);
 		$this->type = $row[0];
 
-		$sql = "SELECT Balance FROM Ledger WHERE name='$name' ORDER BY id DESC";
+		$sql = "SELECT Balance FROM ".$wpdb->prefix."Ledger WHERE name='$name' ORDER BY id DESC";
 		$result = $db->query($sql);
 		if ($db->num_rows >= 0) {
 			$db->get_row($sql,$row,0);
@@ -365,7 +367,9 @@ abstract class Ledger extends TAccount {
 	}
 
 	function addDebit($db, $date, $desc, $amount) {
-		$sql = "INSERT INTO Ledger (name,txdate,desc2,debit,balance,type) VALUES ('$this->name','$date','$desc','$amount','$this->balance','$this->type')";
+		global $wpdb;
+		
+		$sql = "INSERT INTO ".$wpdb->prefix."Ledger (name,txdate,desc2,debit,balance,type) VALUES ('$this->name','$date','$desc','$amount','$this->balance','$this->type')";
 		$result = $db->query($sql);
 
 		if ($result==-1) {
@@ -377,10 +381,6 @@ abstract class Ledger extends TAccount {
 	}
 
 	function addCredit($db, $date, $desc, $amount) {
-	//$wpdb->insert( 'table', array( 'column1' => 'value1', 'column2' => 123 ), array( '%s', '%d' ) )
-//	$wpdb->insert('ledger', array('name' => '$this->name','txdate' => '$date','desc2' => '$desc','credit' => '$amount','balance' => '$this->balance','type' => '$this->type',array( '%s', '%s', '%s', '%d', '%d', '%s'));
-
-
 		$this->credit = $amount;
 		return "Credit amount:" . $amount . " inserted correctly into Ledger:" . $this->name;
 	}
@@ -404,7 +404,9 @@ abstract class Ledger extends TAccount {
 	}
 
 	public static function createTable($db) {
-		$sql = "CREATE TABLE `Ledger` (`id` TINYINT AUTO_INCREMENT ,`name` VARCHAR( 255 ) NOT NULL,`txdate` DATE NOT NULL,`desc2` VARCHAR( 255 ) NOT NULL,`ref` DOUBLE NOT NULL,`debit` DECIMAL( 10, 2 ) NOT NULL ,`credit` DECIMAL( 10, 2 ) NOT NULL ,`balance` DECIMAL( 10, 2 ) NOT NULL ,`type` VARCHAR( 10 ) NOT NULL ,PRIMARY KEY ( `id` ) )";
+		global $wpdb;
+		
+		$sql = "CREATE TABLE `".$wpdb->prefix."Ledger` (`id` TINYINT AUTO_INCREMENT ,`name` VARCHAR( 255 ) NOT NULL,`txdate` DATE NOT NULL,`desc2` VARCHAR( 255 ) NOT NULL,`ref` DOUBLE NOT NULL,`debit` DECIMAL( 10, 2 ) NOT NULL ,`credit` DECIMAL( 10, 2 ) NOT NULL ,`balance` DECIMAL( 10, 2 ) NOT NULL ,`type` VARCHAR( 10 ) NOT NULL ,PRIMARY KEY ( `id` ) )";
 		$result = $db->query($sql);
 
 		if ($db->isError($result)) {

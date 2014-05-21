@@ -2,9 +2,9 @@
 
 /*
 Plugin Name: Bestbooks
-Plugin URI: http://www.phkcorp.com?do=wordpress
+Plugin URI: http://wordpress.org/plugins/bestbooks/
 Description: The popular accounting framework
-Version: 1.0
+Version: 1.1
 Author: PHK Corporation
 Author URI: http://www.phkcorp.com
 */
@@ -77,7 +77,7 @@ function addBestBooksTables ()
 
 	if (is_admin()) {
 
-		$query = "CREATE TABLE IF NOT EXISTS `Accounts` (
+		$query = "CREATE TABLE IF NOT EXISTS `".$wpdb->prefix."Accounts` (
   				`id` tinyint(4) NOT NULL auto_increment,
   				`date` date NOT NULL default '0000-00-00',
   				`name` varchar(50) NOT NULL default '',
@@ -89,7 +89,7 @@ function addBestBooksTables ()
 
 		$wpdb->query($query);
 
-		$query = "CREATE TABLE IF NOT EXISTS `Journal` (
+		$query = "CREATE TABLE IF NOT EXISTS `".$wpdb->prefix."Journal` (
   				`date` date NOT NULL default '0000-00-00',
   				`ref` tinyint(4) NOT NULL default '0',
   				`account` varchar(50) NOT NULL default '',
@@ -99,7 +99,7 @@ function addBestBooksTables ()
 
 		$wpdb->query($query);
 
-		$query = "CREATE TABLE IF NOT EXISTS `Ledger` (
+		$query = "CREATE TABLE IF NOT EXISTS `".$wpdb->prefix."Ledger` (
   			`id` tinyint(4) NOT NULL auto_increment,
   			`name` varchar(255) NOT NULL default '',
   			`date` date NOT NULL default '0000-00-00',

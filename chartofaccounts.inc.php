@@ -328,7 +328,9 @@ class ChartOfAccounts {
    var $count = 0;
 
    public function __construct($db) {
-      $sql = "SELECT name,type FROM Accounts";
+   	  global $wpdb;
+   	  
+      $sql = "SELECT name,type FROM ".$wpdb->prefix."Accounts";
       $result = $db->query($sql);
       while ($db->get_row($sql,$row,$this->count)) {
          list($name,$type) = $row;
@@ -338,7 +340,9 @@ class ChartOfAccounts {
    }
 
    function dropTable($db) {
-      $sql = "DROP TABLE Accounts";
+   	  global $wpdb;
+   	  
+      $sql = "DROP TABLE ".$wpdb->prefix."Accounts";
       $result = $db->query($sql);
 
       if ($db->isError($result)) {
@@ -349,7 +353,9 @@ class ChartOfAccounts {
    }
 
    function createTable($db) {
-      $sql = "CREATE TABLE `Accounts` (`name` VARCHAR(50) NOT NULL,`type` VARCHAR(20) NOT NULL,`class` VARCHAR(255) NOT NULL, PRIMARY KEY(`name`))";
+   	  global $wpdb;
+   	  
+      $sql = "CREATE TABLE `".$wpdb->prefix."Accounts` (`name` VARCHAR(50) NOT NULL,`type` VARCHAR(20) NOT NULL,`class` VARCHAR(255) NOT NULL, PRIMARY KEY(`name`))";
       $result = $db->query($sql);
 
       if ($db->isError($result)) {
@@ -360,11 +366,13 @@ class ChartOfAccounts {
    }
 
    function add($db,$name,$type) {
+   	  global $wpdb;
+   	  
       if (!isset($this->account[$name])) {
           $this->account[$name] = $type;
           $this->count++;
 
-          $sql = "INSERT INTO Accounts (name,type) VALUES ('$name','$type')";
+          $sql = "INSERT INTO ".$wpdb->prefix."Accounts (name,type) VALUES ('$name','$type')";
           $result = $db->query($sql);
 
           if ($result==0) {

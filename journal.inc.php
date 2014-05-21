@@ -328,7 +328,9 @@ class Journal {
    }
    
    function add($db,$date,$ref,$account,$debit,$credit) {
-	$sql = "INSERT INTO Journal (txdate,ref,account,debit,credit) VALUES ('$date','$ref','$account','$debit','$credit')";
+   	global $wpdb;
+   	
+	$sql = "INSERT INTO ".$wpdb->prefix."Journal (txdate,ref,account,debit,credit) VALUES ('$date','$ref','$account','$debit','$credit')";
 	$result = $db->query($sql);
 	
 	if ($db->isError($result)) {
@@ -349,7 +351,9 @@ class Journal {
    }
    
    function createTable($db) {
-	$sql = 'CREATE TABLE `Journal` (`txdate` DATE NOT NULL,`ref` TINYINT NOT NULL,`account` VARCHAR(50) NOT NULL,`debit` DECIMAL(10,2) NOT NULL,`credit` DECIMAL(10,2) NOT NULL)';
+   	global $wpdb;
+   	
+	$sql = 'CREATE TABLE `'.$wpdb->prefix.'Journal` (`txdate` DATE NOT NULL,`ref` TINYINT NOT NULL,`account` VARCHAR(50) NOT NULL,`debit` DECIMAL(10,2) NOT NULL,`credit` DECIMAL(10,2) NOT NULL)';
 	$result = $db->query($sql);
 	
 	if ($db->isError($result)) {
@@ -359,7 +363,9 @@ class Journal {
    }
    
    function dropTable($db) {
-   	$sql = "DROP TABLE Journal";
+   	global $wpdb;
+   	
+   	$sql = "DROP TABLE ".$wpdb->prefix."Journal";
 	$result = $db->query($sql);
 	
 	if ($db->isError($result)) {
