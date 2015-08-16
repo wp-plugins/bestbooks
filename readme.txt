@@ -3,8 +3,8 @@ Contributors: phkcorp2005
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9674139
 Tags: shari phk corporation bestbooks accounting application framework sourceforge
 Requires at least: 2.9
-Tested up to: 3.9.1
-Stable tag: 1.0
+Tested up to: 4.3
+Stable tag: 1.1.1
 
 Provides an accounting application framework for wordpress.
 
@@ -109,6 +109,9 @@ Please do not be afraid of asking questions?<br>
 
 
 == Changelog ==
+= 1.1.1 =
+* Compatible to WP Version 4.3
+
 = 1.1 =
 * Change table reference to include wpdb->prefix to support WPMU as well as custom table names, removed php5-ext
 
@@ -123,6 +126,6 @@ We make honorable mention to anyone who helps make Bestbooks for Wordpress a bet
 
 == Contact ==
 
-Support is provided at http://support.phkcorp.com. Please request membership in the "Bestbooks" forum.
+Support is provided at https://github.com/patrickingle/bestbooks/issues. You will require a free account on github.com
 
-Please contact phkcorp2005@gmail.com or visit www.phkcorp.com?do=wordpress with questions, comments, or requests.
+Please contact phkcorp2005@gmail.com or visit the above forum with questions, comments, or requests.
